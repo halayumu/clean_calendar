@@ -5,3 +5,6 @@ use App\Http\Controllers\FirstController;
 
 
 Route::get('/', [FirstController::class, 'showFirstView']);
+Route::get('/addressAutomatic', function () {
+    return view('addressAutomatic');
+});
