@@ -7,62 +7,22 @@
   <title>現在地取得</title>
 
  <!-- Google Maps API -->
-  <script src="http://maps.google.com/maps/api/js?key="></script>
+  {{-- <script src="http://maps.google.com/maps/api/js?key="></script> --}}
 
 
 </head>
 <body>
-  <div id="map"></div>
-  <div id="location">現在地を取得中...</div>
+<section id="map">
+<div class="content">
+<h2>現在のお住まいの住所ですか？</h2>
+<div>大阪府大阪市〇〇町1丁目〇〇</div>
 
-  <script>
-    function initMap() {
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
-        center: { lat: 35.6811673, lng: 139.7670516 },
-        mapTypeId: 'roadmap'
-      });
+<div class="address_decision_button_box">
+  <a href="{{ url('/top') }}">はい</a>
+  <a href="">いいえ</a>
+</div>
 
-      ///APIのサポートがあればtrue、無ければfalse
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
-
-          var infoWindow = new google.maps.InfoWindow({
-            map: map,
-            position: pos,
-            content: '現在地'
-          });
-
-          map.setCenter(pos);
-
-          // 現在地を表示
-          document.getElementById('location').innerText = '現在地: 緯度 ' + pos.lat + ', 経度 ' + pos.lng;
-        }, function() {
-          handleLocationError(true, map.getCenter());
-        });
-      } else {
-        // ブラウザがジオロケーションをサポートしていない場合
-        handleLocationError(false, map.getCenter());
-      }
-    }
-
-    /// エラー処理
-    function handleLocationError(browserHasGeolocation, pos) {
-      var infoWindow = new google.maps.InfoWindow({
-        map: map,
-        position: pos,
-        content: browserHasGeolocation ?
-          'エラー: 位置情報サービスに失敗しました。' :
-          'エラー: このブラウザでは位置情報がサポートされていません。'
-      });
-      document.getElementById('location').innerText = '位置情報を取得できませんでした。';
-    }
-
-    window.onload = initMap;
-  </script>
+</section>
+  
 </body>
 </html>
