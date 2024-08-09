@@ -19,7 +19,7 @@
 
 <div class="address_decision_button_box">
   <a href="{{ url('/top') }}">はい</a>
-  <a href="">いいえ</a>
+  <a href="{{ url('/newAddress')}}">いいえ</a>
 </div>
 
 </section>
