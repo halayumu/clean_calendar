@@ -8,10 +8,14 @@
 </head>
 <body>
 
-  <section id="new_address">
+  <section id="new_addres">
     <h2>手動で住所を入力してください！</h2>
-    <input type="text">
-    <button>登録</button>
+
+    <form action="/newAddress" method="post">
+      @csrf
+      <input type="text" name="addres" required>
+      <button>登録</button>
+    </form>
   </section>
 
 </body>

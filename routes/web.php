@@ -10,3 +10,4 @@ Route::get('/', [FirstController::class, 'showFirstView']);
 Route::get('/addressAutomatic', [AddressAutomatic::class, 'showAddressView']);
 Route::get('/top', [TopController::class, 'topView']);
 Route::get('/newAddress', [NewAddresController::class, 'newAddresView']);
+Route::post('/newAddress', [NewAddresController::class, 'newAddres']);
