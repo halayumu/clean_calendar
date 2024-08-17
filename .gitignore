@@ -18,3 +18,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+
+# FullCalendar build files
+public/fullcalendar-6.1.15/dist/
+public/fullcalendar-6.1.15/packages/
